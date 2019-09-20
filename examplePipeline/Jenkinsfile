@@ -1,0 +1,48 @@
+/*  vi:nu:et:sts=4 ts=4 sw=4
+
+    This Jenkinsfile is generally for containerizing applications.
+
+    Created: 2019/09/19
+ */
+
+pipeline {
+
+    agent any
+    
+    environment {
+        PASS = credentials('registry-pass')  // 'registry-pass' must be defined in credentials!
+	    IMAGE_NAME = 'xyzzy'
+        IMAGE_TAG = 'latest'
+    }
+
+    stages {
+
+        stage('Build') {
+            steps {
+                sh './jenkins/build/build.sh'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh './jenkins/test/test.sh'
+            }
+        }
+
+    /***
+        stage('Push') {
+            steps {
+                sh './jenkins/push/push.sh'
+            }
+        }
+     ***/
+
+    /***
+        stage('Deploy') {
+            steps {
+                sh './jenkins/deploy/deploy.sh'
+            }
+        }
+     ***/
+    }
+}

@@ -1,0 +1,2 @@
+The initial foundation for this example came from a udemy.com course, "Jenkins: From Zero to Hero", that I took. I have since embellished it for my own purposes.
+
