@@ -1,0 +1,18 @@
+# Docker Compose to run the new version of Jenkins
+
+version: '3'
+services:
+  jenkins:
+    container_name: jenkins
+    image: kranki/jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - "$PWD/jenkins_home:/var/jenkins_home"           # <== Needs adjustment
+        # The container must have access to running docker's sock and
+        # the permissions on it must be set properly.
+      - "/var/run/docker.sock:/var/run/docker.sock"     # <== Needs adjustment
+    networks:
+      - net
+networks:
+  net:

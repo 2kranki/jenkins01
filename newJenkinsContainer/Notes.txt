@@ -1,0 +1,9 @@
+I created a new version of the Jenkins Docker container so that I could compile Go and Clang programs inside it. To build the container, just issue, "docker-compose build" from the 'build' directory.
+
+To use docker for building images only in this container, you must have adjust the docker-compose.yaml file in this directory.
+
+Also, I pushed this image to Docker Hub with:
+	docker login		# You will need to reply with 'kranki' and Docker Hub password.
+	docker push kranki/jenkins:latest
+
+
